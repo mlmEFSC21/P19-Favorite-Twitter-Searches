@@ -1,0 +1,14 @@
+p {
+    margin: 0px;
+}
+#welcomeMessage {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* list item styles */
+span {
+    margin-left: 10px;
+    display: inline-block;
+    width: 100px;
+}

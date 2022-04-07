@@ -52,9 +52,3 @@ function clearAllSearches() {
     localStorage.clear();
     loadSearches(); // reload searches
 } //end function clearAllSearches
-
-//saves a newly tagged search into localStorage
-function saveSearch() {
-    var query = document.getElementById("query");
-    var tag =
-}

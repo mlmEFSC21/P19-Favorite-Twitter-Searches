@@ -17,13 +17,7 @@ li {
     width: 220px;
 }
 li:first-child {
-    border-top: 1px solid grey;
+    border-top: 1px solid gray;
 }
 li:nth-child(even) {
-    background-color: lightyellow;
-    border-bottom: 1px solid grey;
-}
-li:nth-child(odd) {
-    background-color: lightblue;
-    border-bottom: 1px solid grey;
 }

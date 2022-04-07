@@ -46,15 +46,3 @@ function loadSearches() {
     markup = +"</ul>";
     document.getElementById("searches").innerHTML = markup;
 } //end function loadSearches
-
-//deletes all key/value pairs from localStorage
-function clearAllSearches() {
-    localStorage.clear();
-    loadSearches(); // reload searches
-} //end function clearAllSearches
-
-//saves a newly tagged search into localStorage
-function saveSearch() {
-    var query = document.getElementById("query");
-    var tag =
-}
