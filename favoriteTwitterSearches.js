@@ -15,7 +15,7 @@ function loadSearches() {
     tags = []; //create empty array
 
     // load all keys
-    for (var i = 0; i < length; i++) {
+    for (var i = 0; i < length; ++i) {
         tags[i] = localStorage.key(i);
     } // end for
 
@@ -43,7 +43,7 @@ function loadSearches() {
             "value = 'Delete' onclick = 'deleteTag(id)'>";
     } // end for
 
-    markup = +"</ul>";
+    markup += "</ul>";
     document.getElementById("searches").innerHTML = markup;
 } //end function loadSearches
 
@@ -56,5 +56,33 @@ function clearAllSearches() {
 //saves a newly tagged search into localStorage
 function saveSearch() {
     var query = document.getElementById("query");
-    var tag =
-}
+    var tag = document.getElementById("tag");
+    localStorage.setItem(tag.value, query.value);
+    tag.value = ""; //clear tag input
+    query.value = ""; //clear query input
+    loadSearches(); // reload searches
+} // end function saveSearch
+
+//delete a specific key/value pair from localStorage
+function deleteTag(tag) {
+    localStorage.removeItem(tag);
+    loadSearches(); // reload searches
+} // end function deleteTag
+
+//display existing tagged query for editing
+function editTag(tag) {
+    document.getElementById("query").value = localStorage[tag];
+    document.getElementById("tag").value = tag;
+    loadSearches(); // reload searches
+} // end function editTag
+
+//register event handlers then load searches
+function start() {
+    var saveButton = document.getElementById("saveButton");
+    saveButton.addEventListener("click", saveSearch, false);
+    var clearButton = document.getElementById("clearButton");
+    clearButton.addEventListener("click", clearAllSearches, false);
+    loadSearches(); // load the previously saved searches
+} // end function start
+
+window.addEventListener("load", start, false);
